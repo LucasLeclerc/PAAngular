@@ -1,0 +1,12 @@
+.blocStat {
+    text-align: center;
+    z-index:10000;
+}
+.blocStat > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.tab {
+    display: inline-block;
+    margin-left: 40px;
+}

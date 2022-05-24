@@ -1,0 +1,24 @@
+<h2>Bienvenue {{user.login}}</h2><br>
+<div>
+    <h3>Faite votre commande</h3><br>
+    <span *ngFor="let menu of listeMenu">        
+        <button (click)="addMenu(menu)">{{menu.name}} à {{menu.price}}</button><br>
+    </span>
+    <span *ngFor="let product of listeProduct">        
+        <button (click)="addProduct(product)">{{product.name}} à {{product.price}}</button><br>
+    </span>
+    <span *ngFor="let promo of listePromo">        
+        <button (click)="addPromo(promo)">{{promo.name}} à {{promo.price}}</button><br>
+    </span>
+    <h3>Votre commande</h3>
+    <span *ngFor="let menu of listeMenuOrder">        
+        <span >{{menu.name}} à {{menu.price}}  <button (click)="removeMenu(menu)" STYLE="text-transform:capitalize" >Enlever</button></span><br>
+    </span>
+    <span *ngFor="let product of listeProductOrder">        
+        <span >{{product.name}} à {{product.price}}  <button (click)="removeProduct(product)" STYLE="text-transform:capitalize" >Enlever</button></span><br>
+    </span>
+    <span *ngFor="let promo of listePromoOrder">        
+        <span >{{promo.name}} à {{promo.price}}  <button (click)="removePromo(promo)" STYLE="text-transform:capitalize" >Enlever</button></span><br>
+    </span>
+    <button (click)="setCommand()">Passer commande</button>
+</div>
