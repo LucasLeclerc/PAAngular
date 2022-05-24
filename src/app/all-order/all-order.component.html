@@ -1,0 +1,6 @@
+<h2>Bienvenue {{user.login}}</h2><br>
+<div>
+    <h3>Affichage des menus</h3><br>
+    <span *ngFor="let order of listeOrder">Commande {{order.name}} à {{menu.price}}€ <button (click)="showDisplayOneMenu(menu.id)">Modifier</button><br></span>
+    <button (click)="backToNeutral()">Retour</button>
+</div>
