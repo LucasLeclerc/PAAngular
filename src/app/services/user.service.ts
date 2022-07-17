@@ -12,6 +12,7 @@ export class UserService{
   role:string="";
   name:string="Invité";
   instance!:AxiosInstance;
+  pass:string="";
 
   async getUser(){    
     await this.instance.get('/auth/me')

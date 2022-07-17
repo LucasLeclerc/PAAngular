@@ -1,0 +1,26 @@
+<h1>Votre panier</h1>
+<div *ngFor="let recipe of cartList">
+    {{recipe.recipe.tittle}} : <span (click)="reduceQuantity(recipe.id)">-</span> {{recipe.quantity}} <span (click)="augmentQuantity(recipe.id)">+</span>  <button (click)="askDeleting(recipe.id)">Supprimer la recette</button><br>
+    {{recipe.recipe.description}}<br>    
+</div>
+<br>
+<div *ngIf="activity==='neutre'">
+    Prix du panier : {{price}} €<br>
+    <button  (click)="askModif()">Enregistrer</button><br>
+    <button  (click)="return()">Retour</button><br>
+    
+</div>
+<div *ngIf="activity==='askModif'">
+    Etes vous sur de vouloir enregistrer les modifications ?
+    <br><button  (click)="modif()">Valider</button>
+    <button  (click)="neutral()">Annuler</button>    
+</div>
+<div *ngIf="activity==='askDel'">
+    Etes vous sur de vouloir supprimer {{deleting.recipe.tittle}} ?
+    <br><button  (click)="deleteCartContent()">Valider</button>
+    <button  (click)="neutral()">Annuler</button> 
+</div>
+<div *ngIf="activity==='good'||activity==='error'">
+    {{valideMessage}}<br>    
+    <button  (click)="neutral()">Retour</button><br>
+</div>

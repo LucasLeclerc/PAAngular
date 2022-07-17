@@ -65,10 +65,7 @@
     Mot de passe : <input type="password" id="adminPasswordUpdate1" name="adminPasswordUpdate1" value={{oneAdmin.login}}> <br>
     Confirmation du mot de passe : <input type="password" id="adminPasswordUpdate2" name="adminPasswordUpdate2" value={{oneAdmin.login}}><br> 
     <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
-    <span *ngIf="oneAdmin.resto!=='000000000000000000000000'">Restaurant : {{oneAdmin.rest.name}} à {{oneAdmin.rest.adress}}<br>
-        <button (click)="removeResto()">Retirer l'association au restaurant</button>
-        
-    </span>
+    
     <span *ngIf="oneAdmin.resto==='000000000000000000000000'">Restaurant : 
         <select #p id="listRestoForAdmin">
             <option value="">Pas de restaurant</option>

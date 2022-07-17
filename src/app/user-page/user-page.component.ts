@@ -98,7 +98,7 @@ export class UserPageComponent implements OnInit {
     then( (response) => {
       this.oneAdmin=new User("",response.data._id,response.data.login,response.data.role,response.data.restaurant);
       if(this.oneAdmin.resto!=="000000000000000000000000"){
-        this.oneAdmin.getResto(this.user)
+        
       }
       console.log(this.oneAdmin);
       this.activity="displayOneAdmin";
@@ -295,13 +295,13 @@ export class UserPageComponent implements OnInit {
   removeResto(){
     console.log("debut");
     this.valideMessage=["validé"];
-    this.user.instance.put("/bigboss/updateResto/"+this.oneAdmin.rest.id,{
+    this.user.instance.put("/bigboss/updateResto/"+this.oneAdmin.rest,{
       admin:"000000000000000000000000"
     }).
     then((response) => {
       if(response.status===200){
         this.activity="valider";
-        this.valideMessage.push("Le restaurant "+this.oneAdmin.rest.name+" a été dissocier avec succès.\n")
+        this.valideMessage.push("Le restaurant "+this.oneAdmin.rest+" a été dissocier avec succès.\n")
       }
     }, (error) => {
       console.log(error);

@@ -22,7 +22,7 @@ export class ESGIService{
     }else     if(this.user.role==="Preparator"){
       router.navigate(["/user-Preparator"]).then();
     }else     if(this.user.role==="Customer"){
-      router.navigate(["/user-Customer"]).then();
+      router.navigate(["/profile"]).then();
     }else{
       router.navigate(["/login"]).then();
     }

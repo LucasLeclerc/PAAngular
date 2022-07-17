@@ -1,0 +1,6 @@
+<h1>Liste d'outil</h1><br>
+<span *ngIf="activity==='neutre'">
+    <span *ngFor="let tool of toolList"><button (click)="showDisplayOneTool(tool.id)">{{tool.name}}</button><br></span>
+</span>
+<br>
+<button (click)="newTool()">Ajouter un outil</button>

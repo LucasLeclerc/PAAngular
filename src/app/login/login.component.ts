@@ -32,18 +32,17 @@ export class LoginComponent implements OnInit {
     let login=(<HTMLInputElement>loginText).value;
     let passwordText=document.getElementById("password");
     let password=(<HTMLInputElement>passwordText).value;
+    let token="";
     const instance=axios.create({
       baseURL: this.ESGIService.url,
       headers: {
         'Access-Control-Allow-Origin':'*',
       },
     })
-    let token="";
     await instance.post('/auth/login',{
       login: login,
       password: password
-    })
-    .then( (response) => {
+    }).then( (response) => {
       token=response.data.token;      
     }, (error) => {
       console.log(error);
@@ -53,8 +52,11 @@ export class LoginComponent implements OnInit {
       this.ESGIService.user=new User(token);
       await this.ESGIService.user.init(this.ESGIService.url);
       this.AppComponent.refreshName();
-      this.ESGIService.setUserPage(this.router);
+      this.router.navigate(["allRecipe"]).then();
     }
+  }
+  sign(){    
+    this.router.navigate(["subscribe"]).then();
   }
 
 }

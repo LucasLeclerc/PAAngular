@@ -10,11 +10,11 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ESGIKing';
+  title = 'Home Dinner';
   user:User=new User("","","Invité");
   userName!:string
 
-  constructor(private ESGIService:ESGIService,private UserService:UserService,private router:Router) {
+  constructor(public ESGIService:ESGIService,private UserService:UserService,private router:Router) {
   this.user=this.ESGIService.user;
   }
   async ngOnInit(): Promise<void> {
@@ -32,6 +32,20 @@ export class AppComponent {
       this.router.navigate(["/login"]).then();
     }else{
       this.ESGIService.setUserPage(this.router);
+    }
+  }
+  toCart(){
+    if(this.user.login=="Invité"){
+      this.router.navigate(["/login"]).then();
+    }else{
+      this.router.navigate(["/panier"]).then();
+    }
+  }
+  toRecipe(){
+    if(this.user.login=="Invité"){
+      this.router.navigate(["/login"]).then();
+    }else{
+      this.router.navigate(["/allRecipe"]).then();
     }
   }
 }

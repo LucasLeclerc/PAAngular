@@ -1,0 +1,20 @@
+<h1>Demande de changement en Preparateur</h1>
+Demande de {{demandeOne.user.surname}} {{demandeOne.user.name}}<br>
+Pseudo : {{demandeOne.user.login}}<br>
+Message:<br>
+{{demandeOne.message}}
+Email : {{demandeOne.user.email}}<br>
+<span *ngIf="activity==='neutre'">
+    <button (click)="toAccept()">Accepter</button>
+    <button (click)="toRefuse()">Refuser</button><br>
+</span>
+<span *ngIf="activity==='accepter'||activity==='refuser'">
+    Etes vous sur de vouloir {{activity}}a demande choix :<br>
+    <button (click)="execute()">Valider</button><br>
+    <button (click)="cancel()">Annuler</button><br>
+</span>
+<span *ngIf="activity==='good'||activity==='error'">
+   {{valideMessage}}<br>
+</span>
+<br>
+<app-return></app-return>

@@ -24,6 +24,23 @@ import { AllOrderComponent } from './all-order/all-order.component';
 import { NewPromoComponent } from './new-promo/new-promo.component';
 import { OneOrderComponent } from './one-order/one-order.component';
 import { NewOrderComponent } from './new-order/new-order.component';
+import { AllRecipeComponent } from './all-recipe/all-recipe.component';
+import { OneRecipeComponent } from './one-recipe/one-recipe.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { NewToolComponent } from './new-tool/new-tool.component';
+import { AllToolComponent } from './all-tool/all-tool.component';
+import { OneToolComponent } from './one-tool/one-tool.component';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { FavListComponent } from './fav-list/fav-list.component';
+import { AdminRecipeComponent } from './admin-recipe/admin-recipe.component';
+import { AdminOneRecipeComponent } from './admin-one-recipe/admin-one-recipe.component';
+import { CartDisplayComponent } from './cart-display/cart-display.component';
+import { AdminAddRecipeComponent } from './admin-add-recipe/admin-add-recipe.component';
+import { AdminModifRecipeComponent } from './admin-modif-recipe/admin-modif-recipe.component';
+import { AskPreparatorComponent } from './ask-preparator/ask-preparator.component';
+import { CurrDemandeComponent } from './curr-demande/curr-demande.component';
+import { OneDemandeComponent } from './one-demande/one-demande.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -50,6 +67,23 @@ const routes: Routes = [
   {path:"One-Order",component:OneOrderComponent},
   {path:"New-Order",component:NewOrderComponent},
   {path:"subscribe",component:SubscribeComponent},
+  {path:"recipe",component:OneRecipeComponent},
+  {path:"profile",component:UserProfileComponent},
+  {path:"profil",component:UpdateProfileComponent},
+  {path:"addTool",component:NewToolComponent},
+  {path:"allTool",component:AllToolComponent},
+  {path:"oneTool",component:OneToolComponent},
+  {path:"panier",component:CartDisplayComponent},
+  {path:"favorite",component:FavListComponent},
+  {path:"wishlist",component:WishListComponent},
+  {path:"adminRecipe",component:AdminRecipeComponent},
+  {path:"oneRecipe",component:AdminOneRecipeComponent},
+  {path:"addRecipe",component:AdminAddRecipeComponent},
+  {path:"updateRecipe",component:AdminModifRecipeComponent},
+  {path:"switchToPrep",component:AskPreparatorComponent},
+  {path:"currentAsk",component:CurrDemandeComponent},
+  {path:"choiseDemande",component:OneDemandeComponent},
+  {path:"allRecipe",component:AllRecipeComponent}
 ];
 
 @NgModule({

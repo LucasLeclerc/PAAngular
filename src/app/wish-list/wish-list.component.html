@@ -1,0 +1,18 @@
+<h1>Votre liste des souhaits</h1>
+<div *ngFor="let recipe of wishList">
+    <span (click)="goToRecipe(recipe.id)">{{recipe.tittle}}</span> <button (click)="askDel(recipe.id)">Supprimer de la liste</button><br>
+    {{recipe.description}}<br>    
+</div>
+<br>
+<div *ngIf="activity==='neutre'">
+    <button  (click)="return()">Retour</button><br>    
+</div>
+<div *ngIf="activity==='askDel'">
+    Etes vous sur de vouloir retirer {{deleting.tittle}} ?
+    <br><button  (click)="deleteFavContent()">Valider</button>
+    <button  (click)="neutral()">Annuler</button> 
+</div>
+<div *ngIf="activity==='good'||activity==='error'">
+    {{valideMessage}}<br>
+    <button  (click)="neutral()">Retour à liste</button><br>
+</div>

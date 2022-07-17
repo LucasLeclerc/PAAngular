@@ -1,0 +1,5 @@
+<h2>Bienvenue {{user.login}}</h2><br>
+<div>
+    <h3>Affichage des menus</h3><br>
+    <span *ngFor="let recipe of listeRecipe"><button (click)="showDisplayOneRecipe(recipe.id)">{{recipe.tittle}} à {{recipe.price}}€ </button><br></span>
+</div>

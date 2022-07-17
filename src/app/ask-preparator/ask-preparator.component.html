@@ -1,0 +1,13 @@
+<p>Demande de passage en preparator</p>
+Message : <input type="text" id="message" name="message"><br>
+Est-vous sur de vouloir convertir le compte en preparator ?<br>
+<button type="button"(click)="confirm()">Envoyer la demande</button><br>
+<span *ngIf="activity==='confirm'">
+    Confirez-vous votre demande ?<br>
+    <button type="button"(click)="asking()">Oui</button>
+    <button type="button"(click)="reset()">Non</button>    
+</span>
+<span *ngIf="activity==='error'||activity==='good'">
+   {{valideMessage}}
+</span><br>
+<app-return></app-return>

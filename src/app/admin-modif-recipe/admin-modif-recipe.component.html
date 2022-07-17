@@ -1,0 +1,23 @@
+<h1>Mise à jour du la recette</h1>
+<span *ngIf="activity==='neutre'">
+    {{recipe.photo}}<br>
+    Titre : <input  type="texte" id="tittle" value="{{recipe.tittle}}"><br>
+    Description : <input  type="texte" id="description" value="{{recipe.description}}"><br>
+    Contient :<br>
+    <span *ngFor="let ingre of recipe.ingredient">- {{ingre}} <br></span>
+
+    Nécessite :<br>
+    <span *ngFor="let tool of recipe.requirerTool">- {{tool}} <br></span>
+
+    Instruction :<br>
+    <input  type="text" id="instruction" value="{{recipe.instruction}}"><br>
+    Se prépare en <input  type="number" id="time" value="{{recipe.timeToPrepare}}"> min<br>
+    Cout : <input  type="number" id="cost" value="{{recipe.price}}"> €<br>
+    <button  (click)="updateRecipe()">Valider</button>
+    <button  (click)="switchToBack()">Annuler</button><br>
+    <app-return></app-return>
+</span>
+<span *ngIf="activity!=='neutre'">
+    <br>{{valideMessage}}<br>
+    <app-return></app-return>
+</span>

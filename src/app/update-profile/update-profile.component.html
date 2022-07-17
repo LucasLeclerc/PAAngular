@@ -1,0 +1,20 @@
+<h1>Mise à jour du profile</h1>
+<span *ngIf="activity==='neutre'">
+Prénom : <span *ngIf="state==='view'">{{user.name}}</span><input *ngIf="state==='update'" type="text" id="surname" value="{{user.name}}"><br>
+Nom : <span *ngIf="state==='view'">{{user.surname}}</span><input *ngIf="state==='update'" type="text" id="name" value="{{user.surname}}"><br>
+Date de naissance : <span *ngIf="state==='view'">{{user.birthdate}}</span><input *ngIf="state==='update'" type="date" id="birthdate" value="{{user.birthdate}}"><br>
+Adresse : <br>
+Numeros : <span *ngIf="state==='view'">{{user.adress.number}}</span><input *ngIf="state==='update'" type="number" id="number" value="{{user.adress.number}}"><br>
+Rue : <span *ngIf="state==='view'">{{user.adress.street}}</span><input *ngIf="state==='update'" type="text" id="street" value="{{user.adress.street}}"><br>
+Code Postal : <span *ngIf="state==='view'">{{user.adress.postalCode}}</span><input *ngIf="state==='update'" type="text" id="postalCode" value="{{user.adress.postalCode}}"><br>
+Ville : <span *ngIf="state==='view'">{{user.adress.town}}</span><input *ngIf="state==='update'" type="text" id="town" value="{{user.adress.town}}"><br>
+Pays : <span *ngIf="state==='view'">{{user.adress.country}}</span><input *ngIf="state==='update'" type="text" id="country" value="{{user.adress.country}}"><br>
+<button *ngIf="state==='view'" (click)="switchToUpdate()">Modifier</button>
+<button *ngIf="state==='update'" (click)="updateUser()">Valider</button>
+<button *ngIf="state==='update'" (click)="switchToBack()">Annuler</button><br>
+<button (click)="return()">Retour</button>
+</span>
+<span *ngIf="activity!=='neutre'">
+<br>{{valideMessage}}
+<button (click)="return()">Retour</button><br>
+</span>

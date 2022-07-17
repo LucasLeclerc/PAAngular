@@ -1,0 +1,14 @@
+<h1>Ajout d'un outil</h1><br>
+<span *ngIf="activity==='neutre'">
+    Nom : <input type="text" id="name" value=""><br>
+    Photo : <input type="text" id="photo" value=""><br>
+    Description :<input type="text" id="description" value=""><br>
+    <button (click)="addTool()">Ajouter l'outil</button><br>
+</span>
+<span *ngIf="valideMessage!==''&&activity==='neutre'">
+    {{valideMessage}}<br>
+</span>
+<span *ngIf="activity!=='neutre'">
+    {{valideMessage}}<br>
+    <button (click)="return()">Retour</button><br>
+</span>

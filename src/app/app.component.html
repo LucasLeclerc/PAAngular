@@ -1,3 +1,3 @@
-<div class="bandeau"><span (click)="goLanding()"><b>{{title}}</b></span> inserer bandeau <span (click)="toUserOrLogin()">{{user.login}} : {{user.role}}</span></div>
+<div class="bandeau"><span (click)="goLanding()"><b>{{title}}</b></span> inserer bandeau  <span (click)="toRecipe()">Recettes </span> <span (click)="toCart()">Panier </span> <span (click)="toUserOrLogin()">{{ESGIService.user.login}} : {{ESGIService.user.role}}</span></div>
 
 <router-outlet></router-outlet>

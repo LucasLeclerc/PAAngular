@@ -1,0 +1,17 @@
+<h1>Ajout de recette</h1><br>
+<span *ngIf="activity==='neutre'">
+    Nom : <input type="text" id="tittle" value=""><br>
+    Description : <input type="text" id="description" value=""><br>
+    Photo : <input type="text" id="photo" value=""><br>
+    Instruction : <input type="text" id="instruction" value=""><br>
+    Temp de preparation : <input type="number" id="timeToPrepare" value=0><br>
+    Prix :<input type="number" id="price" value=0><br>
+    <button (click)="addTool()">Ajouter la recette</button><br>
+</span>
+<span *ngIf="valideMessage!==''&&activity==='neutre'">
+    {{valideMessage}}<br>
+</span>
+<span *ngIf="activity!=='neutre'">
+    {{valideMessage}}<br>
+    <button (click)="return()">Retour</button><br>
+</span>

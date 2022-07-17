@@ -25,21 +25,21 @@ export class UserAdminComponent implements OnInit {
     this.user=this.ESGIService.user;
     if(this.user.login==="Invité"){
       this.router.navigate(["/login"]).then();
-    }else{
+    }else if(this.ESGIService.user.role==="Admin"){
       this.user=this.ESGIService.user;
+      
+    }else{
+      this.ESGIService.setUserPage(this.router);
     }
   }
-  showProduct(){
-    this.router.navigate(["/manage-Product"]).then();
+  viewTool(){
+    this.router.navigate(["/allTool"]).then();
   }
-  showMenu(){
-    this.router.navigate(["/manage-Menu"]).then();
+  viewRecipe(){
+    this.router.navigate(["/adminRecipe"]).then();
   }
-  showPromo(){
-    this.router.navigate(["/manage-Promo"]).then();
-  }
-  showOrder(){
-    this.router.navigate(["/manage-Order"]).then();
+  viewRequest(){
+    this.router.navigate(["/currentAsk"]).then();
   }
   backToNeutral(){
     this.ESGIService.setUserPage(this.router);

@@ -1,11 +1,12 @@
+<h1>Connexion</h1>
 <div>    
         Username : 
         <input type="text" id="login"  name="login"><br>
         Password : 
         <input type="password" id="password"  name="password"><br>
-        <button (click)="login()" STYLE="text-transform:capitalize" >Login</button>
+        <button (click)="login()" STYLE="text-transform:capitalize" >Connexion</button><br>
+        <button (click)="sign()" STYLE="text-transform:capitalize" >Crer un compte</button>
         <div *ngIf="error">
                 Erreur, l'identifiant ou le mot de passe est mal renseigner
-        </div>    
+        </div>
 </div>
-<router-outlet></router-outlet>
