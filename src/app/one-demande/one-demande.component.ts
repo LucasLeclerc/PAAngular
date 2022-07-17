@@ -36,7 +36,7 @@ export class OneDemandeComponent implements OnInit {
     }else if(this.ESGIService.user.role=="Admin"){
       this.user=this.ESGIService.user;
       this.demandeOne=new Demande();
-      this.user.instance.get("/admin/getDemandeById"+this.UserService.pass,{}).
+      this.user.instance.get("/admin/getDemandeById/"+this.UserService.pass,{}).
       then( (response) => {
         let element=response.data;
         const dat=element.user;
@@ -63,7 +63,7 @@ export class OneDemandeComponent implements OnInit {
   }  
   execute(){
     if(this.activity==="accepter"){
-    this.user.instance.get("/admin/acceptDemande/"+this.demandeOne.id,{}).
+    this.user.instance.post("/admin/acceptDemande/"+this.demandeOne.id,{}).
       then( (response) => {
         this.activity="good"
         this.valideMessage="La demande à bien été accepter."
@@ -73,7 +73,7 @@ export class OneDemandeComponent implements OnInit {
         this.error=true;
       });
     }else if(this.activity==="refuser"){
-      this.user.instance.get("/admin/acceptDemande/"+this.demandeOne.id,{}).
+      this.user.instance.post("/admin/acceptDemande/"+this.demandeOne.id,{}).
         then( (response) => {
           this.activity="good"
           this.valideMessage="La demande à bien été refuser."

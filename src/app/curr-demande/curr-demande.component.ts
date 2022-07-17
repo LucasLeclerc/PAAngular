@@ -37,7 +37,7 @@ export class CurrDemandeComponent implements OnInit {
       this.demandeList=[];
       this.user.instance.get("/admin/getCurrDemande",{}).
       then( (response) => {
-        response.data.forEach((element: { _id: string; message: string; user: User; }) => {
+        response.data.forEach((element: { id: string; message: string; user: User; }) => {
           const dat=element.user;
           let tmp =new Demande();
           tmp.setWithData(element);
