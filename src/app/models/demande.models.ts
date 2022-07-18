@@ -9,8 +9,8 @@ export class Demande {
         this.message=message;
         this.user=user;
     }
-    setWithData(data: { _id: string; message: string; user: User; }){
-        this.id=data._id;
+    setWithData(data: { id: string; message: string; user: User; }){
+        this.id=data.id;
         this.message=data.message;
         this.user=new User();
         this.user.setWithData(data.user)
