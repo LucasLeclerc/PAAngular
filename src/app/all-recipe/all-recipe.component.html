@@ -1,7 +1,20 @@
 <div id="pageContent">
     <h2>Bienvenue {{user.login}}</h2><br>
     <div>
-        <h3>Affichage des menus</h3><br>
-        <span *ngFor="let recipe of listeRecipe"><button (click)="showDisplayOneRecipe(recipe.id)">{{recipe.tittle}} à {{recipe.price}}€ </button><br></span>
-    </div>  
+        <h3>Affichage des menus</h3>
+        <div class="displayAllRecipe">
+            <div class="recipe" *ngFor="let recipe of listeRecipe" (click)="showDisplayOneRecipe(recipe.id)">
+                <div class="recipeImg">
+                    <!--img [src]="'http://localhost:3000/images/img/{{recipe.photo}}'"-->
+                </div>
+                
+                <div class="recipeContent">
+                    <h2>{{recipe.tittle}}</h2>
+                    Prix : {{recipe.price}}
+                    <br>
+                    Description : {{recipe.description}}
+                </div>
+            </div>  
+        </div>
+
 </div>

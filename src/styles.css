@@ -51,3 +51,42 @@ input, button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.recipe { display: flex;
+    background: red;
+    padding: 5px;
+    margin: auto;
+    margin-top: 5px;
+    width: 50%;
+    text-align: left;
+}
+
+.recipeImg {
+    width: 50%;
+    background: blue;
+}
+
+.recipeContent {
+    background: yellow;
+    width: 70%;
+}
+
+.displayAllRecipe {
+    display: block;
+}
+
+#profileMenu div , app-user-base div, #toolList div, #adminRecipeList div{
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+    background: #FE8B72;
+    border-radius: 5px;
+    box-shadow: 2px 2px black;
+    height: 50px;
+    padding-top: 25px;
+}
+
+#profileMenu div:hover , app-user-base div, #toolList div, #adminRecipeList div{
+    background: orange;
+}
