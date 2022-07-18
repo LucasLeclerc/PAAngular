@@ -1,83 +1,23 @@
-.h1{
-    white-space: nowrap;
+
+.header {
+  background-color: #FE8B72;
+  width: 100%;
+  height: 90px;
+  display: flex;
 }
-.bandeau{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    background-color: white;
+
+.headerElement {
+  width: 25%;
+  text-align: center;
 }
-.div {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: -2px;
-    padding-bottom: 6px;
-    padding-top: 12px;
-    background-color: rgba(50, 124, 206, 1);
-    color: rgba(255, 255, 255, 1);
-    font-size: 68px;
-    margin-bottom: -2px;
-  }
-  .div-2 {
-    display: flex;
-  }
-  @media (max-width: 999px) {
-    .div-2 {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: calc(50% - 10px);
-    margin-left: 0px;
-  }
-  @media (max-width: 999px) {
-    .column {
-      width: 100%;
-    }
-  }
-  .div-3 {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: auto;
-    text-align: center;
-    line-height: normal;
-    height: auto;
-    max-width: 419px;
-    width: auto;
-    align-self: stretch;
-    margin-bottom: auto;
-  }
-  .column-2 {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: calc(50% - 10px);
-    margin-left: 20px;
-  }
-  @media (max-width: 999px) {
-    .column-2 {
-      width: 100%;
-    }
-  }
-  .div-4 {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-top: auto;
-    text-align: center;
-    line-height: normal;
-    height: auto;
-    font-size: 44px;
-    width: auto;
-    align-self: center;
-    max-width: 238px;
-    margin-bottom: auto;
-    margin-left: auto;
-    min-width: 241px;
-  }
+
+.headerElement:hover {
+  background: orange;
+}
+
+.headerElement p {
+  margin-top:  30px;
+}
+
+
+

@@ -1,24 +1,47 @@
-<h1>Création du compte</h1>
-<span *ngIf="activity==='1'">
-    Prénom : <input type="text" id="surname" value=""><br>
-    Nom : <input type="text" id="name" value=""><br>
-    Date de naissance : <input type="date" id="birthdate" value=""><br>
-    Adresse mail : <input type="text" id="email" value=""><br>
-    <button (click)="switch1To2()" STYLE="text-transform:capitalize" >Suivant</button><br>
-</span>
-<span *ngIf="activity==='2'">
-    Adresse : <br>
-    Numeros : <input type="number" id="number" value=""><br>
-    Rue : <input type="text" id="street" value=""><br>
-    Code Postal : <input type="text" id="postalCode" value=""><br>
-    Ville : <input type="text" id="town" value=""><br>
-    Pays : <input type="text" id="country" value=""><br>
-    <button (click)="switch2To3()" STYLE="text-transform:capitalize" >Suivant</button><br>
-</span>
-<span *ngIf="activity==='3'">
-    Identifiant : <input type="text" id="login" value=""><br>
-    Mot de passe : <input type="text" id="mdp" value=""><br>
-    <button (click)="sub()" STYLE="text-transform:capitalize" >Création du compte</button><br>
-</span>
-<button (click)="log()" STYLE="text-transform:capitalize" >Se connecter</button><br>
-<app-return></app-return>
+<div class="form">
+    <h1>Création du compte</h1>
+    <span *ngIf="activity==='1'">
+        <div class="formInputLabel">
+            <label>Prénom :</label>    
+            <input type="text" id="surname" value="">
+        </div>
+        <div class="formInputLabel">
+            <label>Nom :</label>    
+            <input type="text" id="name" value="">
+        </div>
+        <div class="formInputLabel">
+            <label>Date de naissance :  :</label>
+            <input type="date" id="birthdate" value="">    
+        </div>
+        <div class="formInputLabel">
+            <label>Mail : </label>
+            <input type="text" id="email" value="">   
+        </div>
+        <button (click)="switch1To2()" STYLE="text-transform:capitalize" >Suivant</button><br>
+    </span>
+    <span *ngIf="activity==='2'">
+        <h2>Adresse</h2>
+        <div class="formInputLabel">
+            <label>Numéro : </label>
+            <input type="number" id="number" value="">
+        </div>
+        <div class="formInputLabel">
+            <label>Rue : </label>
+            <input type="text" id="street" value="">        </div>
+        <div class="formInputLabel">
+            <label>Ville : </label>
+            <input type="text" id="town" value="">        </div>
+        <div class="formInputLabel">
+            <label>Pays : </label>
+            <input type="text" id="country" value="">
+        </div>
+        <button (click)="switch2To3()" STYLE="text-transform:capitalize" >Suivant</button><br>
+    </span>
+    <span *ngIf="activity==='3'">
+        Identifiant : <input type="text" id="login" value=""><br>
+        Mot de passe : <input type="text" id="mdp" value=""><br>
+        <button (click)="sub()" STYLE="text-transform:capitalize" >Création du compte</button><br>
+    </span>
+    <button (click)="log()" STYLE="text-transform:capitalize" >Se connecter</button><br>
+    <app-return></app-return>
+</div>
