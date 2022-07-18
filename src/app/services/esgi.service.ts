@@ -17,10 +17,8 @@ export class ESGIService{
       router.navigate(["/user-BigBoss"]).then();
     }else     if(this.user.role==="Admin"){
       router.navigate(["/user-Admin"]).then();
-    }else     if(this.user.role==="Livreur"){
-      router.navigate(["/user-Livreur"]).then();
     }else     if(this.user.role==="Preparator"){
-      router.navigate(["/user-Preparator"]).then();
+      router.navigate(["/profile"]).then();
     }else     if(this.user.role==="Customer"){
       router.navigate(["/profile"]).then();
     }else{
