@@ -160,7 +160,8 @@ export class CartDisplayComponent implements OnInit {
     this.ngOnInit()
   }
   toRecap(){
-    this.router.navigate(['/cartValid']).then()
+    if(this.defaultCartList.length!==0){
+    this.router.navigate(['/cartValid']).then()}
   }
   return(){
     this.location.back()
