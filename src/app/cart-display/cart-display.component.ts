@@ -5,8 +5,8 @@ import axios,{AxiosInstance} from 'axios';
 import {AppComponent} from '../app.component';
 import { Router } from '@angular/router';
 import { User } from '../models/user.models';
-import { Menu } from '../models/menu.models';
-import { Promo } from '../models/promo.models';
+
+
 import { Tool } from '../models/tool.models';
 import { Recipe } from '../models/recipe.models';
 import { CartContent } from '../models/cartContent.models';

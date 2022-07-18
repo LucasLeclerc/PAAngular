@@ -1,6 +1,0 @@
-<h2>Bienvenue {{user.login}}</h2><br>
-<div>
-    <h3>Affichage des produits</h3><br>
-    <span *ngFor="let product of listeProduct">{{product.name}} à {{product.price}}€ <button (click)="showDisplayOneProduct(product.id)">Modifier</button><br></span>
-    <button (click)="backToNeutral()">Retour</button>
-</div>
