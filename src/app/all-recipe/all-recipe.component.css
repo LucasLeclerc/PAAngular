@@ -1,0 +1,22 @@
+.recipe { display: flex;
+    background: red;
+    padding: 5px;
+    margin: auto;
+    margin-top: 5px;
+    width: 50%;
+    text-align: left;
+}
+
+.recipeImg {
+    width: 50%;
+    background: blue;
+}
+
+.recipeContent {
+    background: yellow;
+    width: 70%;
+}
+
+.displayAllRecipe {
+    display: block;
+}

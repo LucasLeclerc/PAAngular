@@ -1,8 +1,24 @@
 <div id="pageContent">
     <h1>Votre panier</h1>
-    <div *ngFor="let recipe of cartList">
-        {{recipe.recipe.tittle}} : <span (click)="reduceQuantity(recipe.id)">-</span> {{recipe.quantity}} <span (click)="augmentQuantity(recipe.id)">+</span>  <button (click)="askDeleting(recipe.id)">Supprimer la recette</button><br>
-        {{recipe.recipe.description}}<br>
+    <br>
+
+    <div class="displayAllRecipe">
+        <div class="recipe" *ngFor="let recipe of cartList">
+            <div class="recipeImg">
+                <!--img [src]="'http://localhost:3000/images/img/{{recipe.photo}}'"-->
+            </div>
+
+            <div class="recipeContent">
+                <h2>{{recipe.recipe.tittle}}</h2>
+                <br>
+                Quantité :
+                <span class="changeQuantity" (click)="reduceQuantity(recipe.id)"> - </span>
+                {{recipe.quantity}}
+                <span class="changeQuantity" (click)="augmentQuantity(recipe.id)"> + </span>
+                <br>
+                Description : {{recipe.recipe.description}}
+            </div>
+        </div>
     </div>
     <br>
     <div *ngIf="activity==='neutre'">

@@ -1,6 +1,11 @@
-<h1>Liste de recette</h1><br>
-<span *ngIf="activity==='neutre'">
-    <span *ngFor="let tool of recipeList"><button (click)="showDisplayOnerecipe(tool.id)">{{tool.tittle}}</button><br></span>
-</span>
-<br>
-<button (click)="newRecipe()">Ajouter une recette</button>
+<div id="pageContent">
+    <h1>Liste des recettes</h1><br>
+    <div id="adminRecipeList">
+        <span *ngIf="activity==='neutre'">
+            <div *ngFor="let tool of recipeList" (click)="showDisplayOnerecipe(tool.id)">{{tool.tittle}}</div>
+        </span>
+    </div>
+
+    <br>
+    <button (click)="newRecipe()">Ajouter une recette</button>    
+</div>

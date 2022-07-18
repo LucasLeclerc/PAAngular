@@ -1,5 +1,7 @@
-<h1>Liste de demande</h1><br>
-<span *ngIf="activity==='neutre'">
-    <span *ngFor="let demande of demandeList"><button (click)="showDisplayDemande(demande.id)">{{demande.user.surname}} {{demande.user.name}}</button><br></span>
-</span>
-<br>
+<div id="pageContent">
+    <h1>Liste de demandes</h1><br>
+    <span *ngIf="activity==='neutre'">
+        <span *ngFor="let demande of demandeList"><button (click)="showDisplayDemande(demande.id)">{{demande.user.surname}} {{demande.user.name}}</button><br></span>
+    </span>
+    <br>    
+</div>

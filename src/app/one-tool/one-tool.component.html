@@ -1,21 +1,24 @@
-<h1>Outil</h1>
-<span *ngIf="activity==='null'">
-    Erreur l'outil n'existe pas.<br>
-    Veuillez réessayer plus tard.
-</span>
-<span *ngIf="activity==='neutre'||activity==='preDell'">
-    Nom : {{tool.name}}<br>    
-    Photo : {{tool.photo}}<br>    
-    Description : {{tool.description}}<br>    
-    <button *ngIf="activity==='neutre'" (click)="verifDelTool()">Supprimer l'outil</button>
-    <span *ngIf="activity==='preDell'">
-        Ete-vous sur de vouloir supprimmer cette outil.<br>
-        Toute suppression est définitive.
-        <button (click)="delTool()">Oui</button>
-        <button (click)="activity='neutre'">Non</button>
+<div id="pageContent">
+    <h1>Outil</h1>
+    <span *ngIf="activity==='null'">
+        Erreur l'outil n'existe pas.<br>
+        Veuillez réessayer plus tard.
     </span>
-</span>
-<span *ngIf="activity!=='null'&&activity!=='preDell'&&activity!=='null'">
-   {{valideMessage}}
-   <button (click)="return()">Retour</button>
-</span>
+    <span *ngIf="activity==='neutre'||activity==='preDell'">
+        Nom : {{tool.name}}<br>    
+        Photo : {{tool.photo}}<br>    
+        Description : {{tool.description}}<br>    
+        <button *ngIf="activity==='neutre'" (click)="verifDelTool()">Supprimer l'outil</button>
+        <span *ngIf="activity==='preDell'">
+            Ete-vous sur de vouloir supprimmer cette outil.<br>
+            Toute suppression est définitive.
+            <button (click)="delTool()">Oui</button>
+            <button (click)="activity='neutre'">Non</button>
+        </span>
+    </span>
+    <span *ngIf="activity!=='null'&&activity!=='preDell'&&activity!=='null'">
+    {{valideMessage}}
+    <button (click)="return()">Retour</button>
+    </span>
+</div>
+
