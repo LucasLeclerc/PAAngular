@@ -1,5 +1,4 @@
 .recipe { display: flex;
-    background: red;
     padding: 5px;
     margin: auto;
     margin-top: 5px;
@@ -9,11 +8,11 @@
 
 .recipeImg {
     width: 50%;
-    background: blue;
+    background: white;
 }
 
 .recipeContent {
-    background: yellow;
+    background: grey;
     width: 70%;
 }
 
