@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ESGIService } from '../services/esgi.service';
 import { UserService } from '../services/user.service';
-import axios,{AxiosInstance} from 'axios';
 import {AppComponent} from '../app.component';
 import { Router } from '@angular/router';
 import { User } from '../models/user.models';
-
-
-import { Tool } from '../models/tool.models';
 import { Recipe } from '../models/recipe.models';
 import { CartContent } from '../models/cartContent.models';
 import { Location } from '@angular/common'
@@ -162,6 +158,9 @@ export class CartDisplayComponent implements OnInit {
     this.activity="neutre";
     this.deleting=new CartContent();
     this.ngOnInit()
+  }
+  toRecap(){
+    this.router.navigate(['/allRecipe']).then()
   }
   return(){
     this.location.back()

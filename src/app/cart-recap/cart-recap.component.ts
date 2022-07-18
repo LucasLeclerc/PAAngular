@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ESGIService } from '../services/esgi.service';
 import { UserService } from '../services/user.service';
-import axios,{AxiosInstance} from 'axios';
 import {AppComponent} from '../app.component';
 import { Router } from '@angular/router';
 import { User } from '../models/user.models';
