@@ -37,6 +37,8 @@ import { CurrDemandeComponent } from './curr-demande/curr-demande.component';
 import { OneDemandeComponent } from './one-demande/one-demande.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { CartValidationComponent } from './cart-validation/cart-validation.component';
+import { CartPlanificationComponent } from './cart-planification/cart-planification.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     WishListComponent,
     AdminRecipeComponent,
     AdminOneRecipeComponent,
+    ReturnComponent,
     AdminModifRecipeComponent,
     AdminAddRecipeComponent,
     SignUpComponent,
@@ -73,7 +76,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AskPreparatorComponent,
     CurrDemandeComponent,
     OneDemandeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    OneDemandeComponent,
+    CartPlanificationComponent,
+    CartValidationComponent
   ],
   imports: [
     BrowserModule,

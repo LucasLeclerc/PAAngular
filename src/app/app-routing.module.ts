@@ -27,6 +27,9 @@ import { CurrDemandeComponent } from './curr-demande/curr-demande.component';
 import { OneDemandeComponent } from './one-demande/one-demande.component';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import { CartRecapComponent } from './cart-recap/cart-recap.component';
+import { CartValidationComponent } from './cart-validation/cart-validation.component';
+import { CartPlanificationComponent } from './cart-planification/cart-planification.component';
+import { CartFinishComponent } from './cart-finish/cart-finish.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -53,8 +56,11 @@ const routes: Routes = [
   {path:"switchToPrep",component:AskPreparatorComponent},
   {path:"currentAsk",component:CurrDemandeComponent},
   {path:"choiseDemande",component:OneDemandeComponent},
+  {path:"cartValid",component:CartValidationComponent},
   {path:"cartRecap",component:CartRecapComponent},
   {path:"allRecipe",component:AllRecipeComponent},
+  {path:"plannification",component:CartPlanificationComponent},
+  {path:"sucess",component:CartFinishComponent},
   {path:"",component:WelcomeComponent}
 ];
 

@@ -61,7 +61,7 @@ export class CartDisplayComponent implements OnInit {
       }, (error) => {
         console.log(error);
       });
-      
+
     }
   }
   priceUpdate(){
@@ -126,13 +126,13 @@ export class CartDisplayComponent implements OnInit {
     if (this.modified===false){
       this.valideMessage="Aucune recette n'a été modifiées dans le panier.\n Veuillez réessayer plus tard."
       this.activity='error';
-      return; 
+      return;
     }
     for (let i=0; i<this.cartList.length;i++){
       console.log(this.cartList[i],this.defaultCartList[i])
         inin=true;
         console.log("toto");
-        this.user.instance.put("/cart/updateCart/"+this.defaultCartList[i].id,{          
+        this.user.instance.put("/cart/updateCart/"+this.defaultCartList[i].id,{
           quantity:this.cartList[i].quantity
         }).
         then( (response) => {
@@ -143,14 +143,14 @@ export class CartDisplayComponent implements OnInit {
           console.log(error);
         });
       }
-    
+
     if(inin===true){
       if(cpt===0){
         this.valideMessage="Les recettes ont bien été modifiées dans le panier."
         this.activity='good';
       }else{
         this.valideMessage="Les recettes n'ont pas pus être modifiées dans le panier.\n Veuillez réessayer plus tard."
-        this.activity='error';    
+        this.activity='error';
       }
     }
   }
@@ -160,7 +160,7 @@ export class CartDisplayComponent implements OnInit {
     this.ngOnInit()
   }
   toRecap(){
-    this.router.navigate(['/allRecipe']).then()
+    this.router.navigate(['/cartValid']).then()
   }
   return(){
     this.location.back()

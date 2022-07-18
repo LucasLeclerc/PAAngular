@@ -1,1 +1,46 @@
-<p>cart-planification works!</p>
+<h1>Planification</h1>
+
+<div>Recette restante à planifier :<br><br>
+    <div *ngFor="let element of list">
+        <div>
+             - {{element.recette.tittle}} en  {{element.quantity}} quantity.<br>
+            Description : {{element.recette.description}}<br><br> 
+        </div>  
+    </div>
+</div>
+Choisir la date d'intervention : <input type="date" id="interventionDate" value="{{today.toString()}}" (change)="check()"><br>
+Choisir l'heure d'intervention : <select id="interventionHour" (change)="check()">
+    <option value="10:00:00.000">10:00</option>
+    <option value="11:00:00.000">11:00</option>
+    <option value="12:00:00.000">12:00</option>
+    <option value="13:00:00.000">13:00</option>
+    <option value="14:00:00.000">14:00</option>
+    <option value="15:00:00.000">15:00</option>
+    <option value="16:00:00.000">16:00</option>
+    <option value="17:00:00.000">17:00</option>
+    <option value="18:00:00.000">18:00</option>
+</select><br>
+Choisir la recette à planifier :
+<select id="listRecipe" (change)="check()">    
+  <option *ngFor="let inter of list" [value]="inter.recette.id">{{inter.recette.tittle}}</option>
+</select><br>
+Quantité à planifier :
+<input type="number" id="quantity" min=1  value="1"  (change)="check()"><br>
+<button *ngIf="activity==='neutre'" (click)="getPrepDispo()">Choisir cette horaire</button>
+<br>
+<div *ngIf="activity==='prep'">
+    Selectionner le preparateur : 
+    <select id="listPreparator">    
+        <option *ngFor="let prep of preparatorList" [value]="prep.id">{{prep.surname}} {{prep.name}}</option>
+    </select>
+    <br>
+    <button  (click)="setPlanning()">Plannifier</button><br>
+</div>
+<div *ngIf="activity==='end'">
+    <button  (click)="sendPlanning()">Valider la plannification</button><br>
+</div>
+<div *ngIf="error===true">
+    Erreur : <br>
+    Votre demande de plannification n'est pas bien formuler.
+</div>
+<app-return></app-return>
