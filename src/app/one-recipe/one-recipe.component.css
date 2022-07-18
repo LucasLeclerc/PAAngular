@@ -1,0 +1,35 @@
+.recipeModel {
+    width: 80%;
+}
+
+.recipeModel {
+    display : flex;
+}
+
+.recipePhoto {
+    width: 50%;
+    height: 100%;
+    background: green;
+}
+
+.recipeContent {
+    height: auto;
+    width: 50%;
+    text-align: left;
+    padding-left: 30px;
+    border: 1px solid black;
+    background: #FE8B72;
+}
+
+#oneRecipeNav {
+    display: flex;
+}
+
+#oneRecipeNav button {
+    width: 33%;
+    margin-top: 20px;
+}
+
+h3 {
+    font-weight: bold;
+}

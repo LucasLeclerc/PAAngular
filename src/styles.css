@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    font: arial;
+    font-size: 25px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h1 {
+    font-size: 45px !important;
+    text-align: center;
+    font-weight: bold;
+}
+
+input, button {
+    border : 3px solid orange;
+    border-radius: 5px;
+    background: #FE8B72;
+}
+
+#pageContent {
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.form {
+    margin: auto;
+    width: 50%;
+    text-align: right;
+    padding-top: 50px;
+}
+
+.formInputLabel {
+    padding: 20px;
+}
+
+.formInputLabel label, input {
+    font-size: 30px;
+    padding-right: 10px;
+}
+
+.formInputLabel input {
+    border: 3px solid orange;
+    border-radius: 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

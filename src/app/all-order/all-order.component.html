@@ -1,0 +1,8 @@
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <div>
+        <h3>Affichage des menus</h3><br>
+        <span *ngFor="let order of listeOrder">Commande de {{order.customer.login}} à {{order.price}}€ <button (click)="showDisplayOneOrder(order.id)">Modifier</button><br></span>
+        <button (click)="backToNeutral()">Retour</button>
+    </div>
+</div>

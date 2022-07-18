@@ -1,91 +1,94 @@
-<h2>Bienvenue {{user.login}}</h2><br>
-<div *ngIf="user.role == 'BigBoss' && activity==='neutre'">
-<em class="blocStat">
-    <div>
-        Nombre de restaurant:<span class="tab"></span><br>
-        <span style="font-size:50px;font-weight: bold;">{{nbResto}}</span>
-    </div>
-    <div>
-        Nombre d'admin:<span class="tab"></span><br>
-        <span style="font-size:50px;font-weight: bold;">{{nbAdmin}}</span>
-    </div>
-</em>
-<span *ngIf="error">Erreur lors du chargement des statistique<br></span>
-<br><br><br><br>
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <div *ngIf="user.role == 'BigBoss' && activity==='neutre'">
+    <em class="blocStat">
+        <div>
+            Nombre de restaurant:<span class="tab"></span><br>
+            <span style="font-size:50px;font-weight: bold;">{{nbResto}}</span>
+        </div>
+        <div>
+            Nombre d'admin:<span class="tab"></span><br>
+            <span style="font-size:50px;font-weight: bold;">{{nbAdmin}}</span>
+        </div>
+    </em>
+    <span *ngIf="error">Erreur lors du chargement des statistique<br></span>
+    <br><br><br><br>
 
-<button (click)="showCreateResto()">Crer un restaurant</button>
-<button (click)="showDisplayRestos()">Voir les restaurants</button>
-<button (click)="showCreateAdmin()">Crer un compte admin</button>
-<button (click)="showDisplayAdmin()">Voir les comptes admin</button>
-<button (click)="showCreateBigBoss()">Crer un nouveau compte BigBoss</button>
-<button (click)="showAdminFunction()">Acceder au fonctionnalité admin</button>
+    <button (click)="showCreateResto()">Crer un restaurant</button>
+    <button (click)="showDisplayRestos()">Voir les restaurants</button>
+    <button (click)="showCreateAdmin()">Crer un compte admin</button>
+    <button (click)="showDisplayAdmin()">Voir les comptes admin</button>
+    <button (click)="showCreateBigBoss()">Crer un nouveau compte BigBoss</button>
+    <button (click)="showAdminFunction()">Acceder au fonctionnalité admin</button>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='createResto'">
+        <h3>Création d'un restaurant</h3><br>
+        Nom : <input type="text" id="restoNameCreate" name="restoNameCreate"><br>
+        Adresse : <input type="text" id="restoAddressCreate" name="restoAddressCreate"><br><br>    
+        <span *ngIf="error">Erreur le nom et/ou l'adresse sont mal remplis<br></span>
+        <button (click)="createResto()">Ajouter ce restaurant</button>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='displayResto'">
+        <h3>Affichage des restaurants</h3><br>
+        <span *ngFor="let resto of listeResto">{{resto.name}} à {{resto.adress}}  <button (click)="showDisplayOneResto(resto.id)">Modifier</button><br></span>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='displayOneResto'">
+        <h3>Restaurant :</h3><br>        
+        Nom : <input type="text" id="restoNameUpdate" name="restoNameUpdate" value={{oneResto.name}}><br>
+        Adresse : <input type="text" id="restoAddressUpdate" name="restoAddressUpdate" value={{oneResto.adress}}><br><br>    
+        <span *ngIf="error">Erreur lors de la selection d'un restaurant<br></span>
+        <button (click)="updateResto()">Modifier ce restaurant</button>
+        <button (click)="deleteResto()">Supprimer ce restaurant</button>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='createAdmin'">
+        <h3>Création d'un admin</h3><br>
+        Nom : <input type="text" id="adminLoginCreate" name="adminLoginCreate"><br>
+        Mot de passe : <input type="password" id="adminPasswordCreate1" name="adminPasswordCreate1"> <br>  
+        Confirmation du mot de passe : <input type="password" id="adminPasswordCreate2" name="adminPasswordCreate2"><br><br> 
+        Role : 
+        <select #p id="roleNewUser">        
+        <option valeur="Customer">Client</option>
+        <option valeur="Livreur">Livreur</option>
+        <option valeur="Preparator">Preparateur</option>
+        <option valeur="Livreur">Livreur</option>
+        <option valeur="Admin">Admin</option>
+        </select>   
+        <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
+        <button (click)="createAdmin()">Crer l'admin</button>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='displayAdmin'">
+        <h3>Affichage des admins</h3><br>
+        <span *ngFor="let admin of listeAdmin">{{admin.login}} : {{admin.role}}  <button (click)="showDisplayOneAdmin(admin.id)">Modifier</button><br></span>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='displayOneAdmin'">
+        <h3>Admin :</h3><br>
+        Nom : <input type="text" id="adminLoginUpdate" name="adminLoginUpdate" value={{oneAdmin.login}}><br> 
+        Mot de passe : <input type="password" id="adminPasswordUpdate1" name="adminPasswordUpdate1" value={{oneAdmin.login}}> <br>
+        Confirmation du mot de passe : <input type="password" id="adminPasswordUpdate2" name="adminPasswordUpdate2" value={{oneAdmin.login}}><br> 
+        <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
+        
+        <span *ngIf="oneAdmin.resto==='000000000000000000000000'">Restaurant : 
+            <select #p id="listRestoForAdmin">
+                <option value="">Pas de restaurant</option>
+                <option *ngFor="let resto of listeResto" [value]="resto.id">{{resto.name}} à {{resto.adress}}</option>
+            </select><br>
+        </span>
+        <button (click)="updateAdmin()">Modifier l'Admin</button>
+        <button (click)="deleteAdmin()">Supprimer cet admin</button>
+    </div>
+    <div *ngIf="user.role == 'BigBoss' && activity==='createBigBoss'">
+        <h3>Création d'un nouveau Big Boss</h3><br>
+        Nom : <input type="text" id="bigBossLoginCreate" name="bigBossLoginCreate"><br>
+        Mot de passe : <input type="password" id="bigBossPasswordCreate1" name="bigBossPasswordCreate1"><br>  
+        Confirmation du mot de passe : <input type="password" id="bigBossPasswordCreate2" name="bigBossPasswordCreate2"><br>   
+        <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
+        <button (click)="createBigBoss()">Crer un nouveau Big Boss</button>
+    </div>
+    <div *ngIf="activity==='valider'">
+        <span *ngFor="let message of valideMessage">{{message}}<br></span>
+        <button (click)="backToNeutral()">OK</button>
+    </div>
+    <button *ngIf="activity!=='neutre'" (click)="backToNeutral()">Retour</button>
+    <router-outlet></router-outlet>
 </div>
-<div *ngIf="user.role == 'BigBoss' && activity==='createResto'">
-    <h3>Création d'un restaurant</h3><br>
-    Nom : <input type="text" id="restoNameCreate" name="restoNameCreate"><br>
-    Adresse : <input type="text" id="restoAddressCreate" name="restoAddressCreate"><br><br>    
-    <span *ngIf="error">Erreur le nom et/ou l'adresse sont mal remplis<br></span>
-    <button (click)="createResto()">Ajouter ce restaurant</button>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='displayResto'">
-    <h3>Affichage des restaurants</h3><br>
-    <span *ngFor="let resto of listeResto">{{resto.name}} à {{resto.adress}}  <button (click)="showDisplayOneResto(resto.id)">Modifier</button><br></span>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='displayOneResto'">
-    <h3>Restaurant :</h3><br>        
-    Nom : <input type="text" id="restoNameUpdate" name="restoNameUpdate" value={{oneResto.name}}><br>
-    Adresse : <input type="text" id="restoAddressUpdate" name="restoAddressUpdate" value={{oneResto.adress}}><br><br>    
-    <span *ngIf="error">Erreur lors de la selection d'un restaurant<br></span>
-    <button (click)="updateResto()">Modifier ce restaurant</button>
-    <button (click)="deleteResto()">Supprimer ce restaurant</button>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='createAdmin'">
-    <h3>Création d'un admin</h3><br>
-    Nom : <input type="text" id="adminLoginCreate" name="adminLoginCreate"><br>
-    Mot de passe : <input type="password" id="adminPasswordCreate1" name="adminPasswordCreate1"> <br>  
-    Confirmation du mot de passe : <input type="password" id="adminPasswordCreate2" name="adminPasswordCreate2"><br><br> 
-    Role : 
-    <select #p id="roleNewUser">        
-    <option valeur="Customer">Client</option>
-    <option valeur="Livreur">Livreur</option>
-    <option valeur="Preparator">Preparateur</option>
-    <option valeur="Livreur">Livreur</option>
-    <option valeur="Admin">Admin</option>
-    </select>   
-    <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
-    <button (click)="createAdmin()">Crer l'admin</button>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='displayAdmin'">
-    <h3>Affichage des admins</h3><br>
-    <span *ngFor="let admin of listeAdmin">{{admin.login}} : {{admin.role}}  <button (click)="showDisplayOneAdmin(admin.id)">Modifier</button><br></span>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='displayOneAdmin'">
-    <h3>Admin :</h3><br>
-    Nom : <input type="text" id="adminLoginUpdate" name="adminLoginUpdate" value={{oneAdmin.login}}><br> 
-    Mot de passe : <input type="password" id="adminPasswordUpdate1" name="adminPasswordUpdate1" value={{oneAdmin.login}}> <br>
-    Confirmation du mot de passe : <input type="password" id="adminPasswordUpdate2" name="adminPasswordUpdate2" value={{oneAdmin.login}}><br> 
-    <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
-    
-    <span *ngIf="oneAdmin.resto==='000000000000000000000000'">Restaurant : 
-        <select #p id="listRestoForAdmin">
-            <option value="">Pas de restaurant</option>
-            <option *ngFor="let resto of listeResto" [value]="resto.id">{{resto.name}} à {{resto.adress}}</option>
-        </select><br>
-    </span>
-    <button (click)="updateAdmin()">Modifier l'Admin</button>
-    <button (click)="deleteAdmin()">Supprimer cet admin</button>
-</div>
-<div *ngIf="user.role == 'BigBoss' && activity==='createBigBoss'">
-    <h3>Création d'un nouveau Big Boss</h3><br>
-    Nom : <input type="text" id="bigBossLoginCreate" name="bigBossLoginCreate"><br>
-    Mot de passe : <input type="password" id="bigBossPasswordCreate1" name="bigBossPasswordCreate1"><br>  
-    Confirmation du mot de passe : <input type="password" id="bigBossPasswordCreate2" name="bigBossPasswordCreate2"><br>   
-    <span *ngIf="error">Erreur le nom et/ou le mot de passe sont mal remplis<br></span>
-    <button (click)="createBigBoss()">Crer un nouveau Big Boss</button>
-</div>
-<div *ngIf="activity==='valider'">
-    <span *ngFor="let message of valideMessage">{{message}}<br></span>
-    <button (click)="backToNeutral()">OK</button>
-</div>
-<button *ngIf="activity!=='neutre'" (click)="backToNeutral()">Retour</button>
-<router-outlet></router-outlet>
+

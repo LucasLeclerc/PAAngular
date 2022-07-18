@@ -1,0 +1,24 @@
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <h3>Modification d'un menu</h3><br>
+    <div *ngIf="activity!=='valider'">
+        Nom : <input type="text" id="menuNameUpdate" name="menuNameUpdate"value={{oneMenu.name}}><br>
+        prix : <input type="text" id="menuPrixUpdate" name="menuPrixUpdate"value={{oneMenu.price}}>€<br><br>    
+        Description : <input type="text" id="menuDescriptionUpdate" name="menuDescriptionUpdate"value={{oneMenu.description}}><br><br>    
+        <span *ngIf="listeProduct.length===0">Contenu : Aucun produit dans le menu<br></span>    
+        <span *ngIf="listeProduct.length!==0">Contenu : <br>
+            <span *ngFor="let product of listeProduct">{{product.name}} : {{product.type[0]}}  <button (click)="removeProduct(product.id)">Retirer</button><br></span>
+        </span>
+        Produit à ajouter :
+        <select #p id="listProductForMenu">
+            <option *ngFor="let product of listeAllProduct" [value]="product.id">{{product.name}} : {{product.type[0]}}</option>
+        </select><br>
+        <button (click)="addProduct()">Ajouter ce produit</button>
+        <button (click)="updateMenu()">Modifier ce menu</button>
+        <button (click)="backToNeutral()">Retour</button>
+    </div>
+    <div *ngIf="activity==='valider'">
+        <span >{{valideMessage}}<br></span>
+        <button (click)="backToNeutral()">OK</button>
+    </div>
+</div>

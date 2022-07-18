@@ -1,0 +1,18 @@
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <h3>Création d'un produit</h3><br>
+    <div *ngIf="activity!=='valider'">
+        Nom : <input type="text" id="productNameCreate" name="productNameCreate"><br>
+        prix : <input type="text" id="productPrixCreate" name="productPrixCreate">€<br><br>    
+        Description : <input type="text" id="productDescriptionCreate" name="productDescriptionCreate"><br><br>    
+        Type : <input type="text" id="productTypeCreate" name="productTypeCreate"><br><br>    
+        <span *ngIf="error">Erreur un champs est mal remplis<br></span>
+        <button (click)="createProduct()">Ajouter ce produit</button>
+        <button (click)="backToNeutral()">Retour</button>
+    </div>
+    <div *ngIf="activity==='valider'">
+        <span >{{valideMessage}}<br></span>
+        <button (click)="backToNeutral()">OK</button>
+    </div>
+</div>
+

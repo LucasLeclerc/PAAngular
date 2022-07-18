@@ -1,34 +1,46 @@
-<h2>Bienvenue {{user.login}}</h2><br>
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <div class="recipeModel">
+        <div class="recipePhoto">
+            {{recipe.photo}}
+        </div>
+        <div class="recipeContent">
+            <h3>{{recipe.tittle}}</h3>
+            <h4>{{recipe.description}}</h4>
+            Contient :<br>
+            <span *ngFor="let ingre of recipe.ingredient">- {{ingre}} <br></span>
 
-{{recipe.photo}}
-<h3>{{recipe.tittle}}</h3>
-<h4>{{recipe.description}}</h4>
-Contient :<br>
-<span *ngFor="let ingre of recipe.ingredient">- {{ingre}} <br></span>
+            Nécessite :<br>
+            <span *ngFor="let tool of recipe.requirerTool">- {{tool}} <br></span>
 
-Nécessite :<br>
-<span *ngFor="let tool of recipe.requirerTool">- {{tool}} <br></span>
+            Instruction :<br>
+            {{recipe.instruction}}<br>
+            Se prépare en {{recipe.timeToPrepare}} min<br>
+            Coûte {{recipe.price}} €<br>
+        </div>
+        
 
-Instruction :<br>
-{{recipe.instruction}}<br>
-Se prépare en {{recipe.timeToPrepare}} min<br>
-Coute {{recipe.price}} €<br>
-<button *ngIf="fav===false" (click)="toFav()">Ajouter aux favoris</button>
-<button *ngIf="fav===true" (click)="RemoveFav()">Retirer des favoris</button><br>
-<button *ngIf="wish===false" (click)="toWish()">Ajouter à la liste des souhaits</button>
-<button *ngIf="wish===true" (click)="RemoveWish()">Retirer de la liste des souhaits</button><br>
-<button *ngIf="activity!=='command'" (click)="activity='command'">Choisir cette recette</button>
-<div *ngIf="activity==='command'">
+    </div>
+    <div id="oneRecipeNav">
+        <button *ngIf="fav===false" (click)="toFav()">Ajouter aux favoris</button>
+        <button *ngIf="fav===true" (click)="RemoveFav()">Retirer des favoris</button><br>
+        <button *ngIf="wish===false" (click)="toWish()">Ajouter à la liste des souhaits</button>
+        <button *ngIf="wish===true" (click)="RemoveWish()">Retirer de la liste des souhaits</button><br>
+        <button *ngIf="activity!=='command'" (click)="activity='command'">Choisir cette recette</button>    
+    </div>
+
+    <div *ngIf="activity==='command'">
+        <br>
+        Pour combien de personne
+        <input type="number" id="quantity" min="1" max="10" value="1" (change)="updateValue()"><br>
+        Pour un montant de <span id="montant">{{recipe.price}}</span> €
+        <br>
+        <button (click)="addToCart()">Ajouter au panier</button>
+    </div>
+    <div *ngIf="activity==='good'||activity==='error'||activity==='pass'">
+        <br><span>{{valideMessage}}</span>
+        <br><button *ngIf="activity==='pass'" (click)="toCart()">Acceder au panier</button>
+    </div>
     <br>
-    Pour combien de personne
-    <input type="number" id="quantity" min="1" max="10" value="1" (change)="updateValue()"><br>
-    Pour un montant de <span id="montant">{{recipe.price}}</span> €
-    <br>
-    <button (click)="addToCart()">Ajouter au panier</button>
+    <button (click)="return()">Retour</button>
 </div>
-<div *ngIf="activity==='good'||activity==='error'||activity==='pass'">
-    <br><span>{{valideMessage}}</span>
-    <br><button *ngIf="activity==='pass'" (click)="toCart()">Acceder au panier</button>
-</div>
-<br>
-<button (click)="return()">Retour</button>

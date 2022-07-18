@@ -35,6 +35,8 @@ import { ReturnComponent } from './return/return.component';
 import { AskPreparatorComponent } from './ask-preparator/ask-preparator.component';
 import { CurrDemandeComponent } from './curr-demande/curr-demande.component';
 import { OneDemandeComponent } from './one-demande/one-demande.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -70,11 +72,13 @@ import { OneDemandeComponent } from './one-demande/one-demande.component';
     ReturnComponent,
     AskPreparatorComponent,
     CurrDemandeComponent,
-    OneDemandeComponent
+    OneDemandeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

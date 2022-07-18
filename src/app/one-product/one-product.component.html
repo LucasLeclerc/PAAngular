@@ -1,0 +1,18 @@
+<div id="pageContent">
+    <h2>Bienvenue {{user.login}}</h2><br>
+    <h3>Modification d'un produit</h3><br>
+    <div *ngIf="activity!=='valider'">
+        Nom : <input type="text" id="productNameUpdate" name="productNameUpdate" value={{oneProduct.name}}><br>
+        prix : <input type="text" id="productPrixUpdate" name="productPrixUpdate"value={{oneProduct.price}}>€<br><br>    
+        Description : <input type="text" id="productDescriptionUpdate" name="productDescriptionUpdate"value={{oneProduct.description}}><br><br>    
+        Type : <input type="text" id="productTypeUpdate" name="productTypeUpdate"value={{oneProduct.type}}><br><br>    
+        <span *ngIf="error">Erreur un champs est mal remplis<br></span>
+        <button (click)="updateProduct()">Modifier ce produit</button>
+        <button (click)="deleteProduct()">Supprimer ce produit</button>
+        <button (click)="backToNeutral()">Retour</button>
+    </div>
+    <div *ngIf="activity==='valider'">
+        <span >{{valideMessage}}<br></span>
+        <button (click)="backToNeutral()">OK</button>
+    </div>
+</div>
