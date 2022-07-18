@@ -25,6 +25,7 @@ import { AdminModifRecipeComponent } from './admin-modif-recipe/admin-modif-reci
 import { AskPreparatorComponent } from './ask-preparator/ask-preparator.component';
 import { CurrDemandeComponent } from './curr-demande/curr-demande.component';
 import { OneDemandeComponent } from './one-demande/one-demande.component';
+import {WelcomeComponent} from "./welcome/welcome.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path:"switchToPrep",component:AskPreparatorComponent},
   {path:"currentAsk",component:CurrDemandeComponent},
   {path:"choiseDemande",component:OneDemandeComponent},
-  {path:"allRecipe",component:AllRecipeComponent}
+  {path:"allRecipe",component:AllRecipeComponent},
+  {path:"",component:WelcomeComponent}
 ];
 
 @NgModule({
