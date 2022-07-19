@@ -5,4 +5,4 @@ app.get('/*', function(req, res) {
     res.sendFile('index.html', {root: 'dist/burger-esgi/'}
   );
   });
-app.listen(4200 || 8080);
+app.listen(8080);
