@@ -14,7 +14,7 @@ export class ESGIService{
   interPage:string="";
   setUserPage(router:Router){
     if(this.user.role==="BigBoss"){
-      router.navigate(["/user-BigBoss"]).then();
+      router.navigate(["/user-Admin"]).then();
     }else     if(this.user.role==="Admin"){
       router.navigate(["/user-Admin"]).then();
     }else     if(this.user.role==="Preparator"){
